@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+    jupyter:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        user: root
+        environment:
+            JUPYTER_ENABLE_LAB: "yes"
+            CHOWN_HOME: "yes"
+            CHOWN_HOME_OPTS: "-R"
+            GRANT_SUDO: "yes"
+        container_name: elixircise
+        ports:
+            - "8888:8888"
+        volumes:
+            - ../.jupyter:/home/jovyan/.jupyter
+            - ../notebook:/home/jovyan/notebook
