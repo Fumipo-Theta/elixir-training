@@ -15,4 +15,4 @@ services:
             - "8888:8888"
         volumes:
             - ../.jupyter:/home/jovyan/.jupyter
-            - ../notebook:/home/jovyan/notebook
+            - ../notebooks:/home/jovyan/notebooks

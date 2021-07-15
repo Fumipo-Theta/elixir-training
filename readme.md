@@ -1,26 +1,44 @@
 # Elixir training
 
-Documents on overview of Elixir syntax and exercises providing playground on Jupyter notebooks.
+Elixirの基本的な文法の学習のためのドキュメント集である。
 
-We use [IElixir](https://github.com/pprzetacznik/IElixir) as jupyter kernel implementation for elixir.
-See the latest definition of [docker image](https://github.com/pprzetacznik/IElixir/tree/master/docker/ielixir-requirements) about the available version of Erlang and Elixir.
+Elixirのコードを試すだけなら`iex`が最も手軽だが、複数行にわたるコードを書いたり、コードの一部を変更して試行錯誤的に実験する際には不便である。
+これらの問題が解消されることと、コードとその実行結果がセットで記録に残ることの有用さによりJupyter notebookを使用している。
 
-## Requirements
+Jupyter notebook上でElixirコードを実行するため、[IElixir](https://github.com/pprzetacznik/IElixir)を使用している。
+なお、notebookの実行環境として、後発で高機能なJupyter labも選択可能であるが、現時点ではElixirコードのシンタックスハイライトやコード補完が効かず不便なため使用していない。
 
-- [Docker](https://www.docker.com/)
-- [docker-compose](https://docs.docker.com/compose/)
+## Notebookの実行方法
 
-## Launch jupyter server
+Jupyter notebookと、Elixirの実行環境が必要である。
+手軽なのはDockerを使用する方法であり、Dockerが使用可能かつ、最新でない特定のバージョンのElixirを使う必要がなければ下記の方法を推奨する。
 
-Use Docker in local.
+### 事前準備
 
-### Run container
+次のどちらかのセットアップを行う。`docker compose`コマンドが使用できればいい。
+1. [Docker Desktop](https://www.docker.com/products/docker-desktop)
+2. [Docker](https://www.docker.com/) & [docker compose cli](https://github.com/docker/compose-cli)
 
-- Build image and launch the container
-  - `cd docker`, then `docker-compose up`
-- Access to http://localhost:8888
-- Notebooks are in [`notebook`](./notebook) directory
+### コンテナの起動
 
-### Contributing guide
+```sh
+$ cd docker
+$ docker compose up
+```
 
-- Do not forget clear all output of the notebook before commit
+### Notebookへのアクセス
+
+- Webブラウザで[http://localhost:8888](http://localhost:8888)を開く
+  - `notebooks`ディレクトリを開く
+- ファイルの実体は[`notebooks`](./notebooks)ディレクトリに存在する
+
+### 補足: 自前で実行環境をセットアップする場合の注意点
+
+- 特定のバージョンのElixirを使用する場合、適合するバージョンのIElixirを使用すること
+  - [IElixir/mix.exs](https://github.com/pprzetacznik/IElixir/blob/master/mix.exs)のElixirバージョン指定を見て、適当なコミット時点のものを利用する
+
+## Contributing guide
+
+- Notebookの変更をコミットする前に、notebookのツールバーの`Kernel` > `Restart & Clear Output`を実行しておくこと
+  - 演習のために、コードの実行結果を消しておくため
+  - 本質的でないメタデータの差分が混じることを防ぐため
