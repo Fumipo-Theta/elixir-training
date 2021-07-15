@@ -39,6 +39,7 @@ $ docker compose up
 
 ## Contributing guide
 
-- Notebookの変更をコミットする前に、notebookのツールバーの`Kernel` > `Restart & Clear Output`を実行しておくこと
+- Notebookの変更をコミットする前に、下の画像のようにnotebookのツールバーの`Kernel` > `Restart & Clear Output`を実行した上で保存しておくこと
   - 演習のために、コードの実行結果を消しておくため
   - 本質的でないメタデータの差分が混じることを防ぐため
+  ![todo before commit](todo_before_commit.png)
