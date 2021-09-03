@@ -15,17 +15,37 @@ Jupyter notebookと、Elixirの実行環境が必要である。
 
 ### 事前準備
 
-次のどちらかのセットアップを行う。`docker compose`コマンドが使用できればいい。
+- `docker`と`docker compose`または`docker-compose`コマンドが使えればいい。
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop)
 2. [Docker](https://www.docker.com/) & [docker compose cli](https://github.com/docker/compose-cli)
+3. Vagrant & VirtualBox
+  - VMの中に`docker`, `docker-compose`をインストールし、VM内でコンテナを起動する
+
+Vagrant & VirtualBoxを使う場合
+1. VirtualBoxのインストール
+  - [ここ](https://www.virtualbox.org/wiki/Downloads)からダウンロードし、インストールする
+2. Vagrantのインストール
+  - [ここ](https://www.vagrantup.com/downloads)からダウンロードし、インストールする
+3. mutagenのインストール:
+  - [ここ](https://mutagen.io/documentation/introduction/installation)に従ってインストールする
+  - VMと高速にファイルを同期するために使用
 
 ### コンテナの起動
 
-```sh
-$ cd docker
-$ docker compose up
-```
-
+- `docker compose`を使う場合
+  ```sh
+  $ cd docker
+  $ docker compose up
+  ```
+- `docker-compose`を使う場合
+  ```sh
+  $ cd docker
+  $ docker-compose up
+  ```
+- Vagrant & VirtualBoxを使う場合
+  ```sh
+  $ vagrant up
+  ```
 ### Notebookへのアクセス
 
 - Webブラウザで[http://localhost:8888](http://localhost:8888)を開く
