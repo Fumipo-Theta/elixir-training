@@ -1,0 +1,11 @@
+sync:
+  app:
+    mode: "two-way-resolved"
+    alpha: "../"
+    beta: "elixir-training:/home/vagrant/"
+    ignore:
+      vcs: true
+      paths:
+        - "/node_modules"
+        - "/log"
+        - "/tmp"
